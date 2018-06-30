@@ -1,5 +1,11 @@
 # C
 
+## Artistic Style
+
+```
+astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-brackets --convert-tabs --max-code-length=85 --break-after-logical
+```
+
 ## Spacing
 
 * A single space between a control statement and opening parenthesis.
