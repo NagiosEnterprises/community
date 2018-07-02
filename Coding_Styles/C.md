@@ -61,7 +61,6 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
     void somefunction() {
     ```
 
-
 * Always wrap control statements in brackets, even if there is only one operation and brackets are unnecessary
 
     ```
@@ -77,11 +76,9 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
         printf("hi\n");
     ```
 
-
 * Opening bracket for all control statements followed by a newline - **EXCEPT** in a macro definition
 
-    `if (something) {\n` not `if (something) { do_stuff; }`
-
+    `if (something) {\n` not `if (something) { do_stuff(); }`
 
 * Closing bracket is at the same indentation as the control statement of the opening bracket
 
@@ -98,7 +95,6 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
         dosomething();
             }
     ```
-
 
 ## Indentation
 
@@ -205,7 +201,47 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
 
     not
 
-    `if (something) { /* this starts a block */`
+    ```
+    if (something) { /* this starts a block */
+    ```
+
+* Only use `/* */` style comments. No `//` comments are allowed!
+
+    ```
+    /* This is an acceptable comment */
+    ```
+
+    not
+
+    ```
+    // This is not an acceptable comment
+    ```
+
+* Multiline comments are at the discretion of the coder, there is no preference of which style to use - as long as
+  the comment itself is readable. Try and keep the starting column of the text aligned.
+
+    ```
+    /*
+        This is fine
+        just like this
+    */
+    ```
+
+    or
+
+    ```
+    /* This is fine
+       just like this */
+    ```
+
+    or
+
+    ```
+    /*
+     * This is fine
+     * just like this
+     */
+    ```
 
 ## Control statements
 
@@ -410,7 +446,6 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
     2. The subsequent lines must be indented one indentation.
     3. The closing parenthesis and semicolon MAY either follow the last argument, or
         be present on its own line, sharing the same indentation with the opening function call.
-
 
     ```
     some_long_function_call(arg1, arg2, arg3, arg4,
