@@ -10,19 +10,15 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
 
 * A single space between a control statement and opening parenthesis.
 
-
     `if (` not `if(`, `for (` not `for(`
-
 
 * A single space between the closing parenthesis and opening bracket for non-function control statements
 
     `if (something) {` not `if (something){`
 
-
 * Spaces on either side of comparison and assignment operators
 
     `a = b`, not `a=b`, `if (a == b)` not `if (a==b)`
-
 
 * Passing and defining arguments should be spaced properly. At least one space must exist between a comma and the next argument.
 
@@ -326,11 +322,12 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
         do_something();
     }
     ```
-    or
-    ```
-    if (something &&
-        somethingelse) {
 
+    or
+
+    ```
+    if (something
+        && somethingelse) {
         do_something();
     }
     ```
@@ -338,26 +335,34 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
 * Be defensive by default: try and always return in a negative sense, and only positive when a condition has been met (whitelist instead of blacklist)
 
     ```
-    function is_good_string($str)
+    int is_good_string(char * str)
     {
-        if ($str == "good") {
-            return true;
+        if (str == NULL) {
+            return FALSE;
         }
 
-        return false;
+        if (!strcmp(str, "good")) {
+            return TRUE;
+        }
+
+        return FALSE;
     }
     ```
 
     not
 
     ```
-    function is_good_string($str)
+    int is_good_string(char * str)
     {
-        if ($str != "good") {
-            return false;
+        if (str == NULL) {
+            return FALSE;
         }
 
-        return true;
+        if (strcmp(str, "good")) {
+            return FALSE;
+        }
+
+        return TRUE;
     }
     ```
 
@@ -370,32 +375,33 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
   much fun. One tactic to keep line length down is to minimize your indentations. Try to break/return/etc. before you
   get to your main logic instead of wrapping it in conditionals.
 
-  ```
-  function some_function($arg1, $arg2)
-  {
-      if ($arg1 != "arg1") {
-          return false;
-      }
+    ```
+    int some_function(int arg1, int arg2)
+    {
+        if (arg1 != 3) {
+            return false;
+        }
 
-      if ($arg2 != "arg2") {
-          return false;
-      }
+        if (arg2 != 4) {
+            return false;
+        }
 
-      some_really_long_function_call();
-  }
-  ```
+        some_really_long_function_call();
+    }
+    ```
 
-  instead of
-  ```
-  function some_function($arg1, $arg2)
-  {
-      if ($arg1 == "arg1") {
-          if ($arg2 == "arg2") {
-              some_really_long_function_call();
-          }
-      }
-  }
-  ```
+    instead of
+
+    ```
+    int some_function(int arg1, int arg2)
+    {
+        if (arg1 == 3) {
+            if (arg2 == 4) {
+                some_really_long_function_call();
+            }
+        }
+    }
+    ```
 
 * When breaking a long function call:
 
@@ -412,7 +418,9 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
         arg6,
         arg7);
     ```
+
     or
+
     ```
     some_long_function_call(arg1, arg2, arg3, arg4,
         arg5,
@@ -422,6 +430,7 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
     ```
 
     not
+
     ```
     some_long_function_call(arg1, arg2, arg3, arg4
         ,arg5
@@ -429,7 +438,9 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
         ,arg7);
 
     ```
+
     or
+
     ```
     some_long_function_call(arg1, arg2, arg3, arg4,
         arg5,
