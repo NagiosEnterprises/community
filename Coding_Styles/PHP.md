@@ -147,16 +147,16 @@ For the most part, this is very similar to the C coding style. The main differen
     ```
     // printed output is part of a larger expression
     // this is only a part. see function start_print()
-    x++;
-    printf("%d", x % 7);
+    $x++;
+    printf("%d", $x % 7);
     ```
 
     not
 
     ```
     // increment x and print modulus 7
-    x++;
-    printf("%d", x % 7);
+    $x++;
+    printf("%d", $x % 7);
     ```
 
     See the difference? Also, let's take a look at the following *actual* code:
@@ -261,7 +261,7 @@ For the most part, this is very similar to the C coding style. The main differen
 * No unecessarily advanced control statements. Try not to mix assignment and comparison.
 
     ```
-    my_string = strdup("some text");
+    $my_string = "some text";
     if ($my_string == NULL) {
         return ERROR;
     }
@@ -270,7 +270,7 @@ For the most part, this is very similar to the C coding style. The main differen
     not
 
     ```
-    if ($(my_string = strdup("some text")) == NULL) {
+    if (($my_string = "some text") == NULL) {
         return ERROR;
     }
     ```
@@ -284,7 +284,7 @@ For the most part, this is very similar to the C coding style. The main differen
     not
 
     ```
-    if ($NULL == var)
+    if (NULL == $var)
     ```
 
 * Unlike the C style guide, we allow (and encourage) the use of functions in a control statement - if that
@@ -319,7 +319,7 @@ For the most part, this is very similar to the C coding style. The main differen
 
     ```
     if ($something
-        && somethingelse) {
+        && $somethingelse) {
 
         do_something();
     }
@@ -329,7 +329,7 @@ For the most part, this is very similar to the C coding style. The main differen
 
     ```
     if ($something &&
-        somethingelse) {
+        $somethingelse) {
 
         do_something();
     }
@@ -339,7 +339,7 @@ For the most part, this is very similar to the C coding style. The main differen
 
     ```
     if ($something
-        && somethingelse) {
+        && $somethingelse) {
         do_something();
     }
     ```
