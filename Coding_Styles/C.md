@@ -304,9 +304,9 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
     }
     ```
 
-* When you need to break up conditional statements over a series of lines, make sure the logical operator is at the beginnin
+* When you need to break up conditional statements over a series of lines, make sure the logical operator is at the beginning
   of the line (not the end). When this happens, ensure there is an additional newline after the end of the opening bracket.
-  Use your common sense. It may even be advantageous to put the opening bracket on it's own to help with spacing and
+  Use your common sense. It may even be advantageous to put the opening bracket on its own to help with spacing and
   orientation.
 
     ```
@@ -363,8 +363,6 @@ astyle --style=kr --pad-oper --pad-header --add-brackets --break-closing-bracket
 
   They may be functionally the exact same, but in the future you may need to add to it, and it is much easier to add to
   a function that EXPECTS to fail than vice versa in many cases.
-
-*
 
 ## Line Length and Breaking
 
